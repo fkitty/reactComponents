@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import styles from './TodoList.less';
 
 class TodoList extends PureComponent {
   static propType = {
@@ -18,7 +19,7 @@ class TodoList extends PureComponent {
 
   render () {
     return(
-      <div>
+      <div className={styles.container}>
         {/* 头部的输入框和添加按钮 */}
         <div>
           <input
