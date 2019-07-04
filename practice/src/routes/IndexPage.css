@@ -28,3 +28,7 @@
 .list code {
   background: #f7f7f7;
 }
+.running {
+  display: flex;
+  justify-content: center;
+}
