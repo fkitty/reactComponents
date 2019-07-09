@@ -19,7 +19,7 @@ class RabbitTime extends PureComponent {
     return(
       <div>
         <h2>rabbitTime</h2>
-        <div>{this.props.rabbitTime}</div>
+        <div>{this.props.rabbitTime}</div>  
       </div>
     )
   }

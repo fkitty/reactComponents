@@ -9,10 +9,9 @@ import MathTest from '../components/MathTest';
 import MathFunctionTest from '../components/MathFuctionTest';
 import RabbitTime from '../components/RabbitTime';
 import TortoiseTime from '../components/TortoiseTime';
+import Play from '../components/Play';
 import Judge from '../components/Judge';
 import styles from './IndexPage.css';
-import TrackRabbit from '../components/TrackRabbit';
-import TrackRortoise from '../components/TrackTortoise';
 
 
 class App extends Component {
@@ -35,7 +34,7 @@ class App extends Component {
 
 
  
-  success1 = () => {
+  success1 () {
     const { t0 } = this.state;
     console.log(new Date() - t0);
     this.setState({
@@ -44,7 +43,8 @@ class App extends Component {
     // 先设置一个初始时间，用结束时的时间减去初始时间就是所用时间
   }
 
-  success2 = () => {
+  success2 = (x) => { // 回调的参数
+    console.log(x, '子传给父的');
     const { t0 } = this.state;
     console.log(new Date() - t0);
     this.setState({
@@ -97,10 +97,7 @@ class App extends Component {
             <TortoiseTime tortoiseTime={this.state.tortoiseTime} />
           </div>
           <div style={{marginTop: 20, padding: '0 25px'}}>
-            <div style={{paddingBottom: 10}}>
-              <TrackRabbit success={this.success1} />
-            </div>
-              <TrackRortoise success={this.success2} />
+            <Play success1={this.success1.bind(this)} success2={this.success2}/>
           </div>
         </div>
       </div>

@@ -1,46 +1,52 @@
 import React, { PureComponent } from 'react';
 import styles from './propsTest.less';
 
-class TrackRortoise extends PureComponent {
-  static propType = {
+class Tracktortoise extends PureComponent {
 
+  static propType = {
   }
 
   state = {
-
   }
 
-  constructor (props, context){
+  constructor(props, context) {
     let n = 0;
     super(props, context);
     this.state = {
+      apple: '0',
       style: {
         transform: `translateX(${n}%)`
-      }
+      },
     }
+
+    // 设置一个定时器
     let timeId = setInterval(() => {
       n += 5;
       this.setState({
         style: {
           transform: `translateX(${n}%)`
-        }
+        },
       })
-      // 跑到终点的时候取消定时器
-      if(n >= 95){
+      // 取消一个定时器
+      if (n >= 95){
         window.clearInterval(timeId);
         this.props.success();
       }
     }, 1000);
   }
 
-  render () {
-    return(
+  componentDidMount = () => {
+    // this.rabbitRout();
+  }
+
+  render() {
+    return (
       <div>
-        <div className={styles.running} style={this.state.style}>tortoise</div>
+        <div className={styles.running} style={this.state.style}>rortoise</div>
         <div className={styles.track}></div>
       </div>
     )
   }
 }
 
-export default TrackRortoise;
+export default Tracktortoise;
