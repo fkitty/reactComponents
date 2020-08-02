@@ -11,6 +11,10 @@ import RabbitTime from '../components/RabbitTime';
 import TortoiseTime from '../components/TortoiseTime';
 import Play from '../components/Play';
 import Judge from '../components/Judge';
+
+// import {BigPapa, YoungPapa} from '../components/Test';
+import {All} from '../components/Test';
+
 import styles from './IndexPage.css';
 
 
@@ -99,6 +103,14 @@ class App extends Component {
           <div style={{marginTop: 20, padding: '0 25px'}}>
             <Play success1={this.success1.bind(this)} success2={this.success2}/>
           </div>
+        </div>
+
+        <Divider />
+        
+        <div className={styles.root}>
+          {/* <BigPapa />
+          <YoungPapa /> */}
+          <All />
         </div>
       </div>
       
