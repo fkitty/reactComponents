@@ -46,3 +46,10 @@
   padding: 10;
   margin: 10px 0;
 }
+.root {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border: 1px solid black;
+  padding: 10px;
+}

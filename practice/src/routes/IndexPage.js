@@ -12,8 +12,8 @@ import TortoiseTime from '../components/TortoiseTime';
 import Play from '../components/Play';
 import Judge from '../components/Judge';
 
-// import {BigPapa, YoungPapa} from '../components/Test';
-import {All} from '../components/Test';
+import {BigPapa, YoungPapa} from '../components/Test';
+// import {All} from '../components/Test';
 
 import styles from './IndexPage.css';
 
@@ -108,9 +108,10 @@ class App extends Component {
         <Divider />
         
         <div className={styles.root}>
-          {/* <BigPapa />
-          <YoungPapa /> */}
-          <All />
+          {console.log('111')}
+          <BigPapa />
+          <YoungPapa />
+          {/* <All /> */}
         </div>
       </div>
       
