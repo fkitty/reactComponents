@@ -18,6 +18,10 @@ import {BigPapa, YoungPapa} from '../components/Test';
 import styles from './IndexPage.css';
 
 
+var money = {
+  amount: 1000,
+}
+
 class App extends Component {
 
   constructor (props){
@@ -27,6 +31,7 @@ class App extends Component {
       t0: new Date(),
       rabbitTime: 0,
       tortoiseTime: 0,
+      money: money,
     }
   }
 
@@ -109,8 +114,8 @@ class App extends Component {
         
         <div className={styles.root}>
           {console.log('111')}
-          <BigPapa />
-          <YoungPapa />
+          <BigPapa money={this.state.money}/>
+          <YoungPapa money={this.state.money}/>
           {/* <All /> */}
         </div>
       </div>
