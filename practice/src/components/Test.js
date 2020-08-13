@@ -5,6 +5,11 @@ var money = {
   amount: 1000,
 }
 
+var user = {
+  id: '123123',
+  nickName: '土豪',
+}
+
 var fnLists = {};
 var evnetHub = {
   trigger(eventName, data){
@@ -36,9 +41,12 @@ evnetHub.trigger('我要用钱', 100)
 // 创造一个管家
 var test = {
   init(){ // 初始化方法，监听eventHub 看谁想花钱，只要监听到这个方法就去执行它的函数
-    evnetHub('我想花钱', function(data){
-      money.amount -= data; // 之后重新render
+    evnetHub.on('我想花钱', function(data){ // subscribe(订阅)
+      console.log(money, 'data====');
+      money.amount -= data; // reducer:对数据的变动
+      // 之后重新render
       // render();
+      // ReactDOM.render(<App />, )
     })
   }
 }
@@ -116,7 +124,8 @@ class Son2 extends PureComponent{
 
   x = () => {
     // money.amount -= 100;
-    evnetHub.trigger('我想花钱', 100);
+    // action  100叫荷载
+    evnetHub.trigger('我想花钱',/* action type */ 100 /* payload*/);
   }
 
   render(){

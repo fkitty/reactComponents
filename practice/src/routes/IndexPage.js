@@ -22,6 +22,11 @@ var money = {
   amount: 1000,
 }
 
+var user = {
+  id: '123123',
+  nickName: '土豪',
+}
+
 class App extends Component {
 
   constructor (props){
@@ -113,8 +118,7 @@ class App extends Component {
         <Divider />
         
         <div className={styles.root}>
-          {console.log('111')}
-          <BigPapa money={this.state.money}/>
+          <BigPapa money={this.state.money} user={this.state.user}/>
           <YoungPapa money={this.state.money}/>
           {/* <All /> */}
         </div>
