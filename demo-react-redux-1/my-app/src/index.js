@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
-import { func } from 'prop-types';
 
 const stateChanger = (state, action) => {
   if (typeof state === 'undefined') {
@@ -30,6 +29,11 @@ store.subscribe(() => {
   render();
 })
 
+// 这样写是错的
+// store.subscribe(render()) // 先执行render,把render的结果传给subscribe
+
+// store.subscribe(render) //对的
+
 function add3() {
   if( store.getState() % 2 === 1){
     store.dispatch({
@@ -53,10 +57,11 @@ function render() {
     <React.StrictMode>
       <App
         value={store.getState()}
-        onAdd1={() => {store.dispatch({type: 'add', payload: 1})}}
-        onAdd2={() => {store.dispatch({type: 'add', payload: 2})}}
-        onAdd3={add3}
-        onAdd4={add4}
+        store={store}
+        // onAdd1={() => {store.dispatch({type: 'add', payload: 1})}}
+        // onAdd2={() => {store.dispatch({type: 'add', payload: 2})}}
+        // onAdd3={add3}
+        // onAdd4={add4}
       />
     </React.StrictMode>,
     document.getElementById('root')
