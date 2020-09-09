@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 const stateChanger = (state, action) => {
   if (typeof state === 'undefined') {
@@ -24,10 +25,10 @@ const stateChanger = (state, action) => {
 const store = createStore(stateChanger);
 // store.subscribe(render);
 
-render();
-store.subscribe(() => {
-  render();
-})
+// render();
+// store.subscribe(() => {
+//   render();
+// })
 
 // 这样写是错的
 // store.subscribe(render()) // 先执行render,把render的结果传给subscribe
@@ -52,20 +53,13 @@ function add4() {
   }, 2000)
 }
 
-function render() {
+// function render() {
   ReactDOM.render(
-    <React.StrictMode>
-      <App
-        value={store.getState()}
-        store={store}
-        // onAdd1={() => {store.dispatch({type: 'add', payload: 1})}}
-        // onAdd2={() => {store.dispatch({type: 'add', payload: 2})}}
-        // onAdd3={add3}
-        // onAdd4={add4}
-      />
-    </React.StrictMode>,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.getElementById('root')
   );
-}
+// }
 
 serviceWorker.unregister();

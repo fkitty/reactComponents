@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux';
 
 class App extends Component{
 
   add1(){
     // store.dispatch({
     // })
-    // console.log(this.props.onAdd1, '9999');
-    // this.props.onAdd1();
-    const { store } = this.props;
-    store.dispatch({
-      type: 'add',
-      payload: 1,
-    })
+    this.props.onAdd1();
+    // const { store } = this.props;
+    // store.dispatch({
+    //   type: 'add',
+    //   payload: 1,
+    // })
   }
   add2(){
     this.props.onAdd2();
@@ -40,4 +40,14 @@ class App extends Component{
   }
 }
 
+// x是一个函数，返回一个对象
+// 从state中拿出一部分状态
+// 旧的state, 返回：从state中拿出什么值
+function x(state){
+  return {
+    n: state.n,
+  }
+}
+
+connect(x)(App); // 第一个参数，第二个参数
 export default App;
